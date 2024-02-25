@@ -1,12 +1,27 @@
+<script lang="ts" setup>
+  import ServerIcon from './components/ServerIcon.vue';
+  import UserShort from './components/UserShort.vue';
+</script>
+
 <template>
   <v-app>
     <v-main>
       <v-navigation-drawer rail>
-        <v-avatar v-for="n in 5" :key="n" class="ma-2"><v-img src="https://picsum.photos/100/100?random"></v-img></v-avatar>
+        <ServerIcon v-for="n in 5" :key="n" />  
       </v-navigation-drawer>
-      <v-navigation-drawer>Użytkownicy/kanały</v-navigation-drawer>
+      <v-navigation-drawer>
+        <UserShort v-for="n in 5" :key="n" />
+      </v-navigation-drawer>
       <v-card class="h-screen">
-        <v-app-bar>Podstawowe interakcje</v-app-bar>
+        <v-app-bar>
+          <v-row>
+            <v-col>
+              <v-form>
+                <v-text-field label="Szukaj"></v-text-field>
+              </v-form>
+            </v-col>
+          </v-row>
+        </v-app-bar>
         Czat
         <v-footer app>Input</v-footer>
         <v-navigation-drawer location="right">Info o osobie/aktywni użytkownicy serwera</v-navigation-drawer>
@@ -15,5 +30,3 @@
   </v-app>
 </template>
 
-<script lang="ts" setup>
-</script>
